@@ -1,0 +1,21 @@
+{
+  "name": "include",
+  "version": "0.1.0",
+  "description": "Import your handwritten libraries without having to worry about where they are!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "import",
+    "require",
+    "include",
+    "loader"
+  ],
+  "author": "c0dewriter",
+  "license": "GPL-3.0-only",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "fs-extra": "^8.1.0"
+  }
+}
