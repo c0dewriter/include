@@ -3,14 +3,14 @@
 function include(lib) 
 {
 	try { 
-		return require('./lib/includemap').resolve(lib) } 
+		return require( require('./lib/includemap').resolve(lib) );}
 
 	catch (e) { 
 		require('./lib/error-handler').handle(e) }
 }
 
 
-console.log(include("$common/printer"));
+include("$_LIBROOT/common/printer").print();
 
 
 module.exports = include;

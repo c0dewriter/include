@@ -1,6 +1,6 @@
 {
   "name": "include",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "Import your handwritten libraries without having to worry about where they are!",
   "main": "index.js",
   "scripts": {
