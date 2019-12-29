@@ -9,6 +9,7 @@
 /coverage
 *.sublime-project
 *.sublime-workspace
+TODO
 
 # production
 /build
