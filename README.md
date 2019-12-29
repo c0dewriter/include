@@ -1,7 +1,7 @@
 Motivation 
 =====================
 It's hard, at least for me, to refactor **everything** without breaking some.  
-[@include](https://github.com/c0dewriter/include) is a lightweight, small, and simple module designed solely to make 
+[@include](https://github.com/c0dewriter/include-nodejs) is a lightweight, small, and simple module designed solely to make 
 importing local libraries easy and, most importantly, flexible in case it's ever needed.   
 Imagine having the following `lib` directory at version 0.2:
 ```bash
@@ -33,17 +33,17 @@ So how do you adjust every `require("path_to_lib")` with the new folder structur
  - Find and Replace every instance? (hopefully not)
 
 In my humble opinion, these are messy and not really professional.  
-That's the reason why [@include](https://github.com/c0dewriter/include) was born
+That's the reason why [@include](https://github.com/c0dewriter/include-nodejs) was born
 
 Quick Start
 =====================
 ### Install
 ```node
->>> npm install --save include
+>>> npm install --save include-nodejs
 ```
 Or you know:
 ```node
->>> npm i include
+>>> npm i include-nodejs
 ```
 ### Setup
 Create a `.includemap` at the root of your project:  
@@ -61,7 +61,7 @@ Create a `.includemap` at the root of your project:
 ### Use
 ```node
 // file: project/src/index.js
-const include = require("include");
+const include = require("include-nodejs");
 
 const getOS = include("$get-os");
 
@@ -73,7 +73,7 @@ function isRunningDos() {
 ......
 
 // file: project/src/cli/schema
-const include = require("include");
+const include = require("include-nodejs");
 
 const QnA = include("$templates/q-n-a.js");
 // ...

@@ -1,5 +1,5 @@
 {
-  "name": "include",
+  "name": "include-nodejs",
   "version": "0.2.1",
   "description": "Import your handwritten libraries without having to worry about where they are!",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/c0dewriter/include.git"
+    "url": "git+ssh://git@github.com/c0dewriter/include-nodejs.git"
   },
   "keywords": [
     "import",
@@ -19,9 +19,9 @@
   "author": "c0dewriter",
   "license": "GPL-3.0-only",
     "bugs": {
-    "url": "https://github.com/c0dewriter/include/issues"
+    "url": "https://github.com/c0dewriter/include-nodejs/issues"
   },
-  "homepage": "https://github.com/c0dewriter/include#readme",
+  "homepage": "https://github.com/c0dewriter/include-nodejs#readme",
   "dependencies": {
     "colors": "^1.4.0",
     "fs-extra": "^8.1.0"
