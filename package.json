@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/c0dewriter/include.git"
+  },
   "keywords": [
     "import",
     "require",
@@ -14,6 +18,10 @@
   ],
   "author": "c0dewriter",
   "license": "GPL-3.0-only",
+    "bugs": {
+    "url": "https://github.com/c0dewriter/include/issues"
+  },
+  "homepage": "https://github.com/c0dewriter/include#readme",
   "dependencies": {
     "colors": "^1.4.0",
     "fs-extra": "^8.1.0"
