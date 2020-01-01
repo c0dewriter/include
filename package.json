@@ -1,8 +1,11 @@
 {
   "name": "include-nodejs",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Import your handwritten libraries without having to worry about where they are!",
   "main": "index.js",
+  "bin": {
+    "include": "./bin/index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,12 +21,14 @@
   ],
   "author": "c0dewriter",
   "license": "GPL-3.0-only",
-    "bugs": {
+  "bugs": {
     "url": "https://github.com/c0dewriter/include-nodejs/issues"
   },
   "homepage": "https://github.com/c0dewriter/include-nodejs#readme",
   "dependencies": {
     "colors": "^1.4.0",
-    "fs-extra": "^8.1.0"
+    "fs-extra": "^8.1.0",
+    "readline-sync": "^1.4.10",
+    "yargs": "^15.0.2"
   }
 }

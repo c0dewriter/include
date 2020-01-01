@@ -8,10 +8,12 @@
 function include(lib) 
 {
 	try { 
-		return require( require('./lib/includemap').interpret(lib) ) }
+		return require( require('./lib/core/includemap').interpret(lib) ) }
 
 	catch (e) { 
-		require('./lib/error-handler').handle(e) }
+		require('./lib/core/error-handler').handle(e) }
 }
+
+include('$printer')
 
 module.exports = include;
