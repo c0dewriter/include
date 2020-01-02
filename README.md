@@ -1,3 +1,18 @@
+<p align="center">
+    <a href="https://github.com/c0dewriter/include-nodejs">
+        <img src="https://img.shields.io/npm/v/include-nodejs?color=informational" />
+    </a>
+    <a href="https://github.com/c0dewriter/include-nodejs/issues">
+        <img src="https://img.shields.io/github/issues/c0dewriter/include-nodejs" />
+    </a>
+    <a href="https://github.com/c0dewriter/include-nodejs/blob/master/LICENSE">
+        <img src="https://img.shields.io/github/license/c0dewriter/include-nodejs?color=important"/>
+    </a>
+    <a href="#">
+        <img src="https://img.shields.io/badge/Platforms-Linux%20|%20MacOS-important" />
+    </a>
+</p>  
+
 Motivation 
 =====================
 Refactoring **everything** without breaking some is hard.  

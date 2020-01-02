@@ -8,10 +8,10 @@
 function include(lib) 
 {
 	try { 
-		return require( require('./lib/core/includemap').interpret(lib) ) }
+		return require( require('./lib/core/includemap').interpret(lib) ); }
 
 	catch (e) { 
-		require('./lib/core/error-handler').handle(e) }
+		require('./lib/core/error-handler').handle(e); }
 }
 
 module.exports = include;

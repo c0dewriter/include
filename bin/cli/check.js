@@ -15,13 +15,13 @@ function doesIncludeMapExist(raiseException=true) {
 
 	if (raiseException === true) {
 		let err = new Error(`.includemap does not exist at ${INCLUDEMAP_DIR}`);
-		err.code = "ENOENT";
+		err.code = 'ENOENT';
 		
 		throw err;
 	}
 
 	{
-		console.log(">", colors.yellow(".includemap does not exist."));
+		console.log('>', colors.yellow('.includemap does not exist.'));
 		return false;
 	}
 }
@@ -58,11 +58,11 @@ function isIncludeMapValid(raiseException=true) {
 
 function check() {
 	if ( doesIncludeMapExist() ) {
-		console.log(colors.green("> Found .includemap:"), INCLUDEMAP_DIR);
+		console.log(colors.green('> Found .includemap:'), INCLUDEMAP_DIR);
 	}
 	
 	if ( isIncludeMapValid() )
-		console.log(colors.green("> Include map looks good"));
+		console.log(colors.green('> Include map looks good'));
 
 	// TODO :: Check all the defined keywords in .includemap (after implementing the mapper)
 
