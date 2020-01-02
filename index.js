@@ -5,10 +5,12 @@
 	I Still decided do it as I was worried the synchronous nature of require, would cause 
 	performance issues in the long run.
 */
-function include(lib) 
+function include(lib, noRequire=false) 
 {
 	try { 
-		return require( require('./lib/core/includemap').interpret(lib) ); }
+		const resolved = require('./lib/core/includemap').interpret(lib);
+		return ( noRequire ? resolved : require(resolved) ); 
+	}
 
 	catch (e) { 
 		require('./lib/core/error-handler').handle(e); }

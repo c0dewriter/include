@@ -1,0 +1,12 @@
+{
+  "_LIBROOT": "./lib",
+
+  "_MAP": {
+    "print": "$_LIBROOT/print.js",
+
+    "templates":  "$_LIBROOT/templates",
+    "QTemplates": "$templates/Q",
+    "QDatabase":  "$QTemplates/database.json"
+
+  }
+}

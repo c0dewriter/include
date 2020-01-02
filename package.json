@@ -7,7 +7,8 @@
     "include": "./bin/index.js"
   },
   "scripts": {
-    "test": "jest"
+    "eslint-test": "eslint 'bin/**' 'lib/**' 'index.js' --ignore-pattern '*.json'",
+    "test": "npm run eslint-test && jest"
   },
   "repository": {
     "type": "git",
