@@ -1,9 +1,23 @@
-const fse = require("fs-extra");
+const fse 	= require("fs-extra");
+const check = require('./check.js');
+const readl = require('readline-sync');
 
 
-function map() {
+function createIncludeMapFile() {
+	// the 'exitIfFalse' makes sure that we get a 'yes". so there's no need to check.
+	require('./prompt.js').willCreateIncludeMap( exitIfFalse=true );
+
 
 }
 
 
-module.exports = map;
+function map() {
+	if ( check.doesIncludeMapExist(false) === false )
+		createIncludeMapFile();
+
+	check.isIncludeMapValid(true);
+
+}
+
+
+module.exports = { map };

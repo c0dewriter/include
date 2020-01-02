@@ -1,62 +1,67 @@
-const fse  	= require('fs-extra');
-const path 	= require('path');
+const fse  	 = require('fs-extra');
+const path 	 = require('path');
 const colors = require('colors');
 
 const INCLUDEMAP_DIR = path.join(process.cwd(), '.includemap');
 
-/*
-function _promptCreateIncludeMap() {
-	const readl = require('readline-sync');
-	const trueValues 	= ['yes', 'y', 'yeah', 'ya', 'yea', 'yes!', 'ja', 'Y'];
-	const falseValues	= ['no', 'n', 'nah', 'na', 'no!', 'niet', 'N'];
+const includeMapBP  = require('../../lib/blueprints/includemap.bp.json');
+const LIBROOT_KW 	= includeMapBP['library-root'].keyword;
+const MAP_KW 			= includeMapBP['map'].keyword;
 
-	return readl.question('Should we create it for you? [Y/n]:', { 
-		trueValues, 
-		falseValues, 
-		defaultInput: 'Y' 
-	});
 
-}
-*/
-
-function _doesIncludeMapExist() {
+function doesIncludeMapExist(raiseException=true) {
 	if (fse.existsSync( INCLUDEMAP_DIR ))
 		return true;
 
-	let err = new Error(`.includemap does not exist at ${INCLUDEMAP_DIR}`);
-	err.code = "ENOENT";
-	
-	throw err;
+	if (raiseException === true) {
+		let err = new Error(`.includemap does not exist at ${INCLUDEMAP_DIR}`);
+		err.code = "ENOENT";
+		
+		throw err;
+	}
+
+	{
+		console.log(">", colors.yellow(".includemap does not exist."));
+		return false;
+	}
 }
 
 
-function _isIncludeMapValid() {
+function isIncludeMapValid(raiseException=true) {
 	// will be handled by error-handler if there are any syntatical errors
 	const contents = fse.readJsonSync( INCLUDEMAP_DIR );
 
-	const _LIBROOT 	= contents['_LIBROOT']; 
-	const _MAP 		 	= contents['_MAP']; 
+	const libraryRoot = contents[LIBROOT_KW]; 
+	const mapEntries  = contents[MAP_KW]; 
 
-	if ( _LIBROOT === undefined )
-		throw SyntaxError("Could not resolve '_LIBROOT' in .includemap");
+	if ( libraryRoot === undefined )
+		if (raiseException === true)
+			throw SyntaxError(`Could not resolve '${LIBROOT_KW}' in .includemap`);
+		else 
+			return false;
 	
-	if ( fse.pathExistsSync(_LIBROOT) === false )
-		throw SyntaxError(`Path '${_LIBROOT}' does not exist`);
+	if ( fse.pathExistsSync(libraryRoot) === false )
+		if (raiseException === true)
+			throw SyntaxError(`Path '${libraryRoot}' does not exist`);
+		else 
+			return false;
 
-	if ( _MAP === undefined )
-		throw SyntaxError("Could not resolve '_MAP' in .includemap");
+	if ( mapEntries === undefined )
+		if(raiseException === true)
+			throw SyntaxError(`Could not resolve '${MAP_KW}' in .includemap`);
+		else
+			return false;
 	
 	return true;
 }
 
 
 function check() {
-	if ( _doesIncludeMapExist() ) {
+	if ( doesIncludeMapExist() ) {
 		console.log(colors.green("> Found .includemap:"), INCLUDEMAP_DIR);
-		
 	}
 	
-	if ( _isIncludeMapValid() )
+	if ( isIncludeMapValid() )
 		console.log(colors.green("> Include map looks good"));
 
 	// TODO :: Check all the defined keywords in .includemap (after implementing the mapper)
@@ -65,5 +70,9 @@ function check() {
 }
 
 
-module.exports = { check };
+module.exports = { 
+	check, 
+	doesIncludeMapExist, 
+	isIncludeMapValid 
+};
 

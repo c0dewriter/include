@@ -9,17 +9,19 @@ require("yargs")
 
 	.command({
 		command: "check",
+		describe: "Check .includemap's existence and readability",
 		handler: () => {
 			require('./cli/check.js').check();
 		}
 	})
-
-	.command({
-		command: "map",
-		handler: () => {
-			require('./cli/mapper.js').map();
-		}
-	})
+	// .command({
+	// 	command: "map",
+	// 	handler: () => {
+	// 		require('./cli/mapper.js').map();
+	// 	}
+	// })
+	.help('help').alias('h', 'help')
+	.version()
 	.argv;
 
 } catch (e) { require('../lib/core/error-handler').handle(e)  }

@@ -3,7 +3,7 @@ Motivation
 Refactoring **everything** without breaking some is hard.  
 [@include](https://www.npmjs.com/package/include-nodejs) is a lightweight, small, and 
 convenient module designed solely to make 
-importing local libraries easy and, most importantly, flexible in case it's ever needed.   
+importing local libraries easy and most importantly, flexible in case it's ever needed.   
 Imagine having the following `lib` directory at version 0.2:
 ```bash
 lib/
@@ -46,11 +46,11 @@ Or you know:
 >>> npm i include-nodejs
 ```
 ### Setup
-Create a `.includemap` at the root of your project:  
+Create a `.includemap` at the root of your project like so:  
 ```JSON
 {
   "_LIBROOT": "/unix/style/abspath/to/project/lib",
-  "map": {
+  "_MAP": {
     "common":     "$_LIBROOT/common",
     "templates":  "$_LIBROOT/templates",
     
@@ -58,6 +58,21 @@ Create a `.includemap` at the root of your project:
   }
 }
 ```
+### Check setup
+Include the script in your `package.json`:   
+```JSON
+{
+  "scripts": {
+    "include": "include"
+  }
+}
+```
+Run:   
+```node
+$ npm run include check
+```
+Green is good.
+
 ### Use
 ```node
 // file: project/src/index.js
@@ -89,7 +104,7 @@ Using our example [lib](#motivation), this would be a valid **.includemap**:
 {
   "_LIBROOT": "/home/watermelon/Work/Github/watermelon-reborn/lib",
 
-  "map": {
+  "_MAP": {
     "print": "$_LIBROOT/print.js",
 
     "common":     "$_LIBROOT/common",
@@ -114,6 +129,7 @@ Using our example [lib](#motivation), this would be a valid **.includemap**:
 > I have plans to remove them, and make @include much more flexible when I have the time (checkout my Wishlist below).
 
 #### Explanation
+- `_MAP` is where you map keywords to paths.
 - Each entry can reference another by using a `$` sign.
 - `_LIBROOT` is required. It's the absolute path to your library root.
 
@@ -136,7 +152,7 @@ const print = include("print") // raises MODULE_NOT_FOUND
 
 Wishlist
 =====================
-- [ ] Add a CLI interface.
+- [X] Add a CLI interface.
 - [ ] Add a CLI library mapper for convenience.
 - [ ] Support Windows (Oh c'mon! Do I have to?)
 - [ ] Support multiple include maps for different work environments.
