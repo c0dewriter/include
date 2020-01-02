@@ -11,6 +11,9 @@
     <a href="#">
         <img src="https://img.shields.io/badge/Platforms-Linux%20|%20MacOS-important" />
     </a>
+    <a href="https://travis-ci.org/c0dewriter/include-nodejs">
+        <img src="https://img.shields.io/travis/c0dewriter/include-nodejs"/>
+    </a>
 </p>  
 
 Motivation 
