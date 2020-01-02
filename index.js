@@ -14,6 +14,4 @@ function include(lib)
 		require('./lib/core/error-handler').handle(e) }
 }
 
-include('$printer')
-
 module.exports = include;

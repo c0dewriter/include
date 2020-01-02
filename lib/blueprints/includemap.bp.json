@@ -1,0 +1,10 @@
+{
+  "library-root": {
+  	"keyword": "_LIBROOT",
+  	"default": "$PWD/lib"
+  },
+
+  "map": { 
+  	"keyword": "_MAP"
+  }
+}

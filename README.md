@@ -1,7 +1,8 @@
 Motivation 
 =====================
-It's hard, at least for me, to refactor **everything** without breaking some.  
-[@include](https://github.com/c0dewriter/include-nodejs) is a lightweight, small, and simple module designed solely to make 
+Refactoring **everything** without breaking some is hard.  
+[@include](https://www.npmjs.com/package/include-nodejs) is a lightweight, small, and 
+convenient module designed solely to make 
 importing local libraries easy and, most importantly, flexible in case it's ever needed.   
 Imagine having the following `lib` directory at version 0.2:
 ```bash
@@ -26,14 +27,13 @@ lib/
 
 ```
 And, for reasons, you had to change the entire `lib`'s structure for version 0.9.0-alpha.  
-You've come a long way since version 0.2. Your codebase has grown **much** bigger and you're using plenty more 
-libraries than you did before.  
+You've come a long way since version 0.2. Your codebase has grown **much** bigger and you're using plenty more libraries than you did before.  
 So how do you adjust every `require("path_to_lib")` with the new folder structure?
  - Use the refactoring tools built into your Editor / IDE?  
  - Find and Replace every instance? (hopefully not)
 
 In my humble opinion, these are messy and not really professional.  
-That's the reason why [@include](https://github.com/c0dewriter/include-nodejs) was born
+That's the reason why [@include](https://www.npmjs.com/package/include-nodejs) was born
 
 Quick Start
 =====================
