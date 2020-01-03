@@ -1,14 +1,15 @@
 {
   "name": "include-nodejs",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Import your handwritten libraries without having to worry about where they are!",
   "main": "index.js",
   "bin": {
     "include": "./bin/index.js"
   },
   "scripts": {
-    "eslint-test": "eslint 'bin/**' 'lib/**' 'index.js' --ignore-pattern '*.json'",
-    "test": "npm run eslint-test && jest"
+    "eslint-tests": "eslint 'bin/**' 'lib/**' 'index.js' 'test/**' --ignore-pattern '*.json'",
+    "jest-tests": "jest --silent",
+    "test": "npm run eslint-tests && npm run jest-tests"
   },
   "repository": {
     "type": "git",

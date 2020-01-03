@@ -1,10 +1,17 @@
-process.chdir('test/data');
+const include  = require('../index.js');
 
-const include = require('../index.js');
+const ORIG_DIR = process.cwd();
+
+beforeAll(() => {
+	process.chdir('test/usage-data');
+});
+
+afterAll(() => {
+	process.chdir(ORIG_DIR);
+});
 
 
-describe('Testing overall usage with .mock.includemap', () => {
-	
+describe('Testing overall usage with sample usage-data/.includemap', () => {	
 	test('include("$_LIBROOT")', () => {
 		expect( include('$_LIBROOT', true) )
 			.toBe('./lib');
