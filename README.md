@@ -59,13 +59,15 @@ Quick Start
 ```node
 >>> npm install --save include-nodejs
 ```
-Or you know:
+
+Or, you know:
 ```node
 >>> npm i include-nodejs
 ```
+
 ### Setup
 Create a `.includemap` at the root of your project like so:  
-```JSON
+```node
 {
   "_LIBROOT": "/unix/style/abspath/to/project/lib",
   "_MAP": {
@@ -76,20 +78,28 @@ Create a `.includemap` at the root of your project like so:
   }
 }
 ```
+
 ### Check setup
-Include the script in your `package.json`:   
-```JSON
+```node
+>>> npx include check
+```
+
+Or, you know:     
+```node
+// Include the script in your `package.json`
 {
   "scripts": {
     "include": "include"
   }
 }
 ```
-Run:   
+
+And then run:   
 ```node
 $ npm run include check
 ```
-Green is good.
+
+Either way, green is good.
 
 ### Use
 ```node
@@ -118,7 +128,7 @@ How it works
 Simple. It reads a JSON-formatted file named `.includemap` from the working directory of the current node process 
 (which is likely the root of the project unless intentionally changed).    
 Using our example [lib](#motivation), this would be a valid **.includemap**:
-```JSON
+```node
 {
   "_LIBROOT": "/home/watermelon/Work/Github/watermelon-reborn/lib",
 
