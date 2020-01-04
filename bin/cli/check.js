@@ -1,12 +1,7 @@
 const fse  	 = require('fs-extra');
-const path 	 = require('path');
 const colors = require('colors');
 
-const INCLUDEMAP_DIR = path.join(process.cwd(), '.includemap');
-
-const includeMapBP  = require('../../lib/blueprints/includemap.bp.json');
-const LIBROOT_KW 	= includeMapBP['library-root'].keyword;
-const MAP_KW 			= includeMapBP['map'].keyword;
+const { LIBROOT_KW, MAP_KW, INCLUDEMAP_DIR } = process.env;
 
 
 function doesIncludeMapExist(raiseException=true) {

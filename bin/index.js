@@ -11,6 +11,8 @@ try {
 			command: 'check',
 			describe: 'Check .includemap\'s existence and readability',
 			handler: () => {
+				require('../lib/core/env').setIncludeMap();
+				
 				require('./cli/check.js').check();
 			}
 		})

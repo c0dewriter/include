@@ -9,6 +9,8 @@ function include(lib)
 {
 	try 
 	{ 
+		require('./lib/core/env.js').setIncludeMap();
+
 		const resolved = require('./lib/core/includemap').interpret(lib);
 
 		if (process.env.NODE_ENV === '__test__')
