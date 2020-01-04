@@ -5,15 +5,21 @@
 	I Still decided do it as I was worried the synchronous nature of require, would cause 
 	performance issues in the long run.
 */
-function include(lib, noRequire=false) 
+function include(lib) 
 {
-	try { 
+	try 
+	{ 
 		const resolved = require('./lib/core/includemap').interpret(lib);
-		return ( noRequire ? resolved : require(resolved) ); 
+
+		if (process.env.NODE_ENV === '__test__')
+			return resolved;
+		
+		return require(resolved);
 	}
 
 	catch (e) { 
-		require('./lib/core/error-handler').handle(e); }
+		require('./lib/core/error-handler').handle(e); 
+	}
 }
 
 module.exports = include;

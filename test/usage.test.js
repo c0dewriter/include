@@ -12,29 +12,37 @@ afterAll(() => {
 
 
 describe('Testing overall usage with sample usage-data/.includemap', () => {	
+	beforeAll(() => {
+		process.env.NODE_ENV = '__test__';
+	});
+
+	afterAll(() => {
+		delete process.env.NODE_ENV;
+	});
+
 
 	test('include("$_LIBROOT")', () => {
-		expect( include('$_LIBROOT', true) )
+		expect( include('$_LIBROOT') )
 			.toBe('./lib');
 	});
 
 	test('include("$print")', () => {
-		expect( include('$print', true) )
+		expect( include('$print') )
 			.toBe('./lib/print.js');
 	});
 
 	test('include("$templates")', () => {
-		expect( include('$templates', true) )
+		expect( include('$templates') )
 			.toBe('./lib/templates');
 	});
 
 	test('include("$QTemplates")', () => {
-		expect( include('$QTemplates', true) )
+		expect( include('$QTemplates') )
 			.toBe('./lib/templates/Q');
 	});
 
 	test('include("$QDatabase")', () => {
-		expect( include('$QDatabase', true) )
+		expect( include('$QDatabase') )
 			.toBe('./lib/templates/Q/database.json');
 	});
 

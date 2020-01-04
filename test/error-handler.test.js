@@ -2,12 +2,21 @@ const fse = require('fs-extra');
 
 const include  = require('../index.js');
 
-const INCLUDEMAP_BP = require('../lib/blueprints/includemap.bp.json');
 const ORIG_DIR = process.cwd();
 
 
-beforeAll(() => { process.chdir('test/error-handler-data'); });
-afterAll(()  => { process.chdir(ORIG_DIR); });
+beforeAll(() => { 
+	process.chdir('test/error-handler-data'); 
+	{
+		const INCLUDEMAP_BP = require('../lib/blueprints/includemap.bp.json');
+		process.env.LIBROOT_KW = INCLUDEMAP_BP['library-root'].keyword;
+		process.env.MAP_KW 		 = INCLUDEMAP_BP['map'].keyword;
+	}
+});
+
+afterAll(()  => { 
+	process.chdir(ORIG_DIR); 
+});
 
 
 describe('.includemap: to be or not to be', () => {
@@ -27,8 +36,7 @@ describe('.includemap: to be or not to be', () => {
 
 
 describe('.includemap: undefined entries', () => {
-	const LIBROOT_KW = INCLUDEMAP_BP['library-root'].keyword;
-	const MAP_KW		 = INCLUDEMAP_BP['map'].keyword;
+	const { LIBROOT_KW, MAP_KW } = process.env;
 
 	beforeAll(() => {
 		fse.outputJsonSync('.includemap', {
