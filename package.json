@@ -1,6 +1,6 @@
 {
   "name": "include-nodejs",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Import your handwritten libraries without having to worry about where they are!",
   "main": "index.js",
   "bin": {
