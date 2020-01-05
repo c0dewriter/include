@@ -1,3 +1,4 @@
+
 <p align="center">
     <a href="https://github.com/c0dewriter/include-nodejs">
         <img src="https://img.shields.io/npm/v/include-nodejs?color=informational" />
@@ -26,15 +27,15 @@ Imagine having the following `lib` directory at version 0.2:
 ```bash
 lib/
 ├── common
-│   ├── ask-q.js
-│   ├── print.js
-│   └── shutdown.js
+│   ├── ask-q.js
+│   ├── print.js
+│   └── shutdown.js
 ├── hierarchy
-│   └── carveFromJSON.js
+│   └── carveFromJSON.js
 ├── manager
-│   ├── index.js
-│   ├── map-interpreter.js
-│   └── sanity-check.js
+│   ├── index.js
+│   ├── map-interpreter.js
+│   └── sanity-check.js
 ├── print.js
 └── templates
     └── Q
@@ -57,20 +58,33 @@ Quick Start
 =====================
 ### Install
 ```node
->>> npm install --save include-nodejs
+~project] $ npm install --save include-nodejs
 ```
 
-Or, you know:
+or, you know:
 ```node
->>> npm i include-nodejs
+~project] $ npm i include-nodejs
 ```
 
 ### Setup
-Create a `.includemap` at the root of your project like so:  
+Having your library folder, run:
+```node
+~project] $ npx include map 
+```
+```
+> .includemap does not exist.
+Should we create it for you? [Y|n]: Y
+Library root? [$PWD/lib]: // defaults to ./lib
+
+```
+or, you know:
 ```node
 {
+  // example '.includemap' at the root of your project  
+  
   "_LIBROOT": "/unix/style/abspath/to/project/lib",
   "_MAP": {
+    // sample mapping:
     "common":     "$_LIBROOT/common",
     "templates":  "$_LIBROOT/templates",
     
@@ -81,12 +95,12 @@ Create a `.includemap` at the root of your project like so:
 
 ### Check setup
 ```node
->>> npx include check
+~project] $ npx include check
 ```
 
-Or, you know:     
+or, you know:     
 ```node
-// Include the script in your `package.json`
+// Include the script in your 'package.json'
 {
   "scripts": {
     "include": "include"
@@ -96,7 +110,7 @@ Or, you know:
 
 And then run:   
 ```node
-$ npm run include check
+~project] $ npm run include check
 ```
 
 Either way, green is good.
@@ -181,8 +195,9 @@ const print = include("print") // raises MODULE_NOT_FOUND
 Wishlist
 =====================
 - [X] Add a CLI interface.
-- [ ] Add a CLI library mapper for convenience.
+- [x] Add a CLI library mapper for convenience.
 - [ ] Support Windows (Oh c'mon! Do I have to?)
 - [ ] Support multiple include maps for different work environments.
 - [ ] Support multiple library roots.
 - [ ] Support loading libraries from another server.
+
